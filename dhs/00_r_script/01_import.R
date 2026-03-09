@@ -84,4 +84,23 @@ write_dta(pr_hr,file.path(path_dhs, "dhs", country, "01_Raw",
 message(paste("child and HH datasets successfully merged and saved for", country))
 
 
+## Import GIS Datasets 
+
+# Import DHS shape file
+districts_dhs_shp <- st_read(file.path(path_dhs, "dhs", country, "01_Raw", "GIS", "CIGE81FL.shp"))
+
+# GADM administrative boundaries (level 1 and 2)
+
+civ_regions <- st_read(file.path(path_dhs, "dhs", country, "01_Raw", "GIS", "gadm41_CIV_1.shp"))
+districts_ci <- st_read(file.path(path_dhs, "dhs", country, "01_Raw", "GIS", "district", "gadm41_CIV_2.shp"))
+
+
+# EDUC FACILITIES shape file (OpenStreetMap)
+educ_facilities <- st_read(file.path(path_dhs, "dhs", country, "01_Raw", "GIS", "educ_facilities", "hotosm_civ_education_facilities_points_shp.shp"))
+
+# Population raster
+pop_raster <- rast(file.path(path_dhs, "dhs", country,"01_Raw","GIS","raster", "civ_pop_2024_100m.tif"))
+
+message(paste("GIS shapefiles successfully imported for", country))
+
 message("Import script executed")

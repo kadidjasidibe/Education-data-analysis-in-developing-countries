@@ -86,13 +86,15 @@ theme_set(theme_educ())
 ###--------- Run scripts sequentially
 
 source(file.path(path_dhs, "dhs", "00_r_script", "01_import.R"))
-source(file.path(path_dhs, "dhs", "00_r_script", "02_dqa.R"))
+#source(file.path(path_dhs, "dhs", "00_r_script", "02_dqa.R"))
+source(file.path(path_dhs, "dhs", "00_r_script", "02_a_dhs_dqa"))
+source(file.path(path_dhs, "dhs", "00_r_script", "02_b_gis_dqa"))
 source(file.path(path_dhs, "dhs", "00_r_script", "03_data_cleaning.R"))
 source(file.path(path_dhs, "dhs", "00_r_script", "04_data_analysis.R"))
 source(file.path(path_dhs, "dhs", "00_r_script", "05_data_visualization.R"))
 
 #to generate the report doc
-rmarkdown::render(file.path(path_dhs, "dhs",  "02_Presentations", "Reports", "Rmd visualisation study sample.Rmd"))
+rmarkdown::render(file.path(path_dhs, "dhs",  "02_Presentations", "Reports", "Policy Brief: Education Access in Côte d'Ivoire.Rmd"))
 
 
 message("All scripts executed")
