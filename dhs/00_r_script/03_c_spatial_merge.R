@@ -50,4 +50,4 @@ saveRDS(study_sample_final, file.path(path_dhs, "dhs", country, "02_Clean", past
 
 # ---------------------#
 
-message("Data Cleaning script completed")
+message("Spatial merge completed. Master dataset ready for analysis")
