@@ -43,6 +43,12 @@ print(paste0("Number of children with missing district data: ", missing_check))
 # the national border
 # *** Missing GPS coordinate
 
+# To avoid issues when defining the desgin in the analysis script, I will delete 
+# the missing observations now
+
+study_sample_final <- study_sample_final %>%
+  filter(!is.na(NAME_2))
+
 # Saving the clean final dataset
 write.csv(study_sample_final, file.path(path_dhs, "dhs", country, "02_Clean", paste0(country, "_study_sample_final.csv")))
 saveRDS(study_sample_final, file.path(path_dhs, "dhs", country, "02_Clean", paste0(country, "_study_sample_final.rds")))
